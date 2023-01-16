@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Food for Thought</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
+        <div class="navbar">
+            <h1>Food for Thought: Create Draft</h1>
+            <h2> <a class = "settings-button" href="/author/settings">Settings</a></h2>
+        </div>
+    </head>
+<body>
+    <h3>Create New Draft</h3>
+    <div class = "container">
+    <form action="/author/create-new-draft" method="post">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="subtitle">Subtitle</label>
+        <input type="text" id="subtitle" name="subtitle" required>
+
+        <label for="content">Content</label>
+        <textarea id="content" name="content" required></textarea>
+
+        <input type="submit" value="Save Draft">
+    </form>
+    <a href="/author/home" class="back-button">Back</a>
+    </div>
+</body>
+</html>

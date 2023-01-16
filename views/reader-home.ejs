@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Food for Thought</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
+        <div class="navbar">
+            <h1>Food for Thought: Reader Homepage</h1>
+        </div>
+    </head>
+  <body>
+    <div class="header">
+        <h3><%= blogTitle %></h3>
+        <h4><%= blogSubtitle %></h4>
+        <h5>By <%= author %></h5>
+    </div>
+    <h4>Recent Articles</h4>
+    <div class="container">
+    <ul>
+        <% articles.forEach(function(article) { %>
+            <li class="comment-container">
+                <a href="/reader/article/<%= article.id %>/view"><%= article.title %></a>
+                <span class = "comment-time">Published on <%= article.publishedDate %></span>
+            </li>
+        <% }) %>
+    </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Food for Thought</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
+        <div class="navbar">
+            <h1>Food for Thought: Article Reader</h1>
+        </div>
+    </head>
+<body>
+    <h3><%= article.title %></h3>
+    <h4><%= article.subtitle %></h4>
+    <div class = "container">
+    <p>Published: <%= article.publishedDate %></p>
+    <div>
+        <%= article.content %>
+    </div>
+    <p>Likes: <%= article.likes %></p>
+    <p>Dislikes: <%= article.dislikes %></p>
+    <a class = "like-button" href="/reader/article/<%= article.id %>/like">Like</a>
+    <a class = "dislike-button" href="/reader/article/<%= article.id %>/dislike">Dislike</a>
+    <form action="/reader/article/<%= article.id %>/comment" method="POST">
+        <label for="comment">Add a comment:</label>
+        <textarea id="comment" name="comment"></textarea>
+        <input type="submit" value="Submit Comment">
+    </form>
+    <p>Views: <%= article.views %></p>
+    <h4>Comments</h4>
+    <ul id="comments-list">
+        <% comments.forEach(function(comment) { %>
+            <li class="comment-container">
+                <p><%= comment.comment %></p>
+                <p class = "comment-time"><%= comment.createdAt %></p>
+            </li>
+        <% }); %>
+    </ul>
+    <a href="/reader/reader-home" class="back-button">Back</a>
+    </div>
+</body>
+</html>

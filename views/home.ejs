@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food for Thought</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <div class="navbar">
+        <h1>Food for Thought: Author Homepage</h1>
+        <h2> <a class = "settings-button" href="/author/settings">Settings</a></h2>
+    </div>
+</head>
+<body>
+    <!-- set the h2 h3 and h4 as blogTitle, subTitle and author -->
+    <h3><%= blogData.blogTitle %></h3>
+    <h4><%= blogData.blogSubtitle %></h4>
+    <h5>By
+        <%= blogData.author %>
+    </h5>
+    <h6>Drafts</h6>
+    
+    <table class="draft-table">
+        <tr>
+            <th>Title</th>
+            <th>Subtitle</th>
+            <th>Created</th>
+            <th>Last Modified</th>
+            <th>Actions</th>
+        </tr>
+        <% drafts.forEach(function(article) { %>
+            <tr>
+                <td><%= article.title %></td>
+                <td><%= article.subtitle %></td>
+                <td><%= article.created %></td>
+                <td><%= article.lastModified %></td>
+                <td>
+                    <a href="/author/edit-article/<%= article.id %>">Edit</a>
+                    <a href="/author/publish-article/<%= article.id %>" onclick="return confirm('You are about to publish this article.');">Publish</a>
+                    <a href="/author/delete-article/<%= article.id %>" onclick="return confirm('You are about to delete this draft.');">Delete</a>
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+
+    <a href="/author/create-new-draft" class="create-new-draft-button">Create new draft</a>
+    <h6>Published</h6>
+    <table class="published-table">
+        <tr>
+            <th>Title</th>
+            <th>Subtitle</th>
+            <th>Created</th>
+            <th>Published Date</th>
+            <th>Likes</th>
+            <th>Dislikes</th>
+            <th>Views</th>
+            <th>Actions</th>
+        </tr>
+        <% publishedArticles.forEach(function(article) { %>
+            <tr>
+                <td><%= article.title %></td>
+                <td><%= article.subtitle %></td>
+                <td><%= article.created %></td>
+                <td><%= article.publishedDate %></td>
+                <td><%= article.likes %></td>
+                <td><%= article.dislikes %></td>
+                <td><%= article.views %></td>
+                <td>
+                    <a href="#" onclick="return confirm('http://localhost:3000/reader/article/<%= article.id %>/view');">Share</a>
+                    <a href="/author/delete-article/<%= article.id %>" onclick="return confirm('You are about to delete this article.');">Delete</a>
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+
+</body>
+</html>

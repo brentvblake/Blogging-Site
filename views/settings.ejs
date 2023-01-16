@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food for Thought: Settings</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+    <div class = "container">
+    <h3>Settings</h3>
+    <form action="/author/settings" method="POST">
+        <label for="blogTitle">Blog Title</label>
+        <input type="text" name="blogTitle" value="<%= blogTitle %>">
+        <br>
+        <label for="blogSubtitle">Blog Subtitle</label>
+        <input type="text" name="blogSubtitle" value="<%= blogSubtitle %>">
+        <br>
+        <label for="author">Author Name</label>
+        <input type="text" name="author" value="<%= author %>">
+        <br>
+        <input type="submit" value="Save Changes">
+    </form>
+    <a href="/author/home" class="back-button">Back</a>
+    </div>
+    
+</body>
+</html>
